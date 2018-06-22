@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
                         domains.replace(source+",","").replace(","+source,"").replace(source,""));
             } else {
                 req.setAttribute("source",source);
-                req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req,resp);
+                req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
             }
         } else if (Objects.equals("ssoLogin", req.getServletPath())) {
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp );
