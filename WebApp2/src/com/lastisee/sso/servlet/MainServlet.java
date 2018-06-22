@@ -6,7 +6,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.omg.CORBA.OBJ_ADAPTER;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -112,7 +111,7 @@ public class MainServlet extends HttpServlet {
                     }
                 }
             }
-            req.getRequestDispatcher("WEB-INF/views/logout.jsp").forward(req,resp);
+            req.getRequestDispatcher("/WEB-INF/views/logout.jsp").forward(req,resp);
         } else if (Objects.equals("/removeCookie", req.getServletPath())) {
             Cookie cookie = new Cookie("Ticket_Granting_Ticket", null);
             cookie.setMaxAge(0);

@@ -40,6 +40,7 @@ public class LoginServlet extends HttpServlet {
             }
         } else if (Objects.equals("ssoLogin", req.getServletPath())) {
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp );
+            System.out.println("line43");
         } else if (Objects.equals("ssoLogout", req.getServletPath())) {
             String source = req.getParameter("source");
             if (null == source || Objects.equals("", source)) {
@@ -47,7 +48,7 @@ public class LoginServlet extends HttpServlet {
                 source = referer.substring(referer.indexOf("source=") + 7);
             }
             resp.sendRedirect(source + "/logout?domains="+
-                    domains.replace(source+",","").replace(","+source,"").replace(source,"")));
+                    domains.replace(source+",","").replace(","+source,"").replace(source,""));
         }
     }
 }
