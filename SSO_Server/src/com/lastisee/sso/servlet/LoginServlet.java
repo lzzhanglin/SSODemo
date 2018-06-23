@@ -32,16 +32,16 @@ public class LoginServlet extends HttpServlet {
             if (Objects.equals(username, password)) {
                 String ticket = UUID.randomUUID().toString().replace("-", "");
                 System.out.println("************ticket is: "+ticket);
-                resp.sendRedirect(source+"main?ticket=" + ticket + "&domains=" +
+                resp.sendRedirect(source+"/main?ticket=" + ticket + "&domains=" +
                         domains.replace(source+",","").replace(","+source,"").replace(source,""));
             } else {
                 req.setAttribute("source",source);
                 req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
             }
-        } else if (Objects.equals("ssoLogin", req.getServletPath())) {
+        } else if (Objects.equals("/ssoLogin", req.getServletPath())) {
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp );
             System.out.println("line43");
-        } else if (Objects.equals("ssoLogout", req.getServletPath())) {
+        } else if (Objects.equals("/ssoLogout", req.getServletPath())) {
             String source = req.getParameter("source");
             if (null == source || Objects.equals("", source)) {
                 String referer = req.getHeader("referer");
@@ -52,3 +52,6 @@ public class LoginServlet extends HttpServlet {
         }
     }
 }
+
+
+

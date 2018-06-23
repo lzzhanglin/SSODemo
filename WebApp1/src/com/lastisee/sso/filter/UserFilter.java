@@ -13,9 +13,9 @@ public class UserFilter implements Filter {
     private String server;
 
     private String app;
-    public UserFilter() {
-
-    }
+//    public UserFilter() {
+//
+//    }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

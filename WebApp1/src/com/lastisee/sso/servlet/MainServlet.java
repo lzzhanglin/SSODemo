@@ -25,7 +25,7 @@ public class MainServlet extends HttpServlet {
 
     private String servers;
 
-    private void syncCookie(String server, String ticket, final String method) {
+    private void syncCookie(String server, String ticket, String method) {
         service.submit(new Runnable() {
             @Override
             public void run() {
